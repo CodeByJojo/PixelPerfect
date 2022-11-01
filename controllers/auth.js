@@ -86,7 +86,7 @@ exports.postSignup = (req, res, next) => {
         userName: req.body.userName,
         email: req.body.email,
         password: req.body.password,
-        level: normal, // Look into this
+        // level: normal,
     });
 
     User.findOne(
@@ -121,5 +121,14 @@ exports.postSignup = (req, res, next) => {
 exports.getEditor = (req, res) => {
     res.render('editor', {
         title: 'Editor Test',
+    });
+};
+
+exports.getPixel = (req, res) => {
+    if (req.user) {
+        return res.redirect('/pixel');
+    }
+    res.render('Pixel', {
+        title: 'Pixel',
     });
 };
