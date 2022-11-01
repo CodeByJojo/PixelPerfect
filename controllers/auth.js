@@ -115,3 +115,11 @@ exports.postSignup = (req, res, next) => {
         }
     );
 };
+
+//New
+
+exports.getEditor = (req, res) => {
+    res.render('editor', {
+        title: 'Editor Test',
+    });
+};

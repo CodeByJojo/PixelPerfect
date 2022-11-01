@@ -4,7 +4,7 @@ const authController = require('../controllers/auth');
 const homeController = require('../controllers/home');
 const postsController = require('../controllers/posts');
 const editorController = require('../controllers/editor');
-const { ensureAuth, ensureGuest } = require('../middleware/auth');
+const { ensureAuth, ensureGuest, ensureAdmin } = require('../middleware/auth');
 
 //Simple Main Routes
 router.get('/', homeController.getIndex); //This might need to change
@@ -15,5 +15,9 @@ router.post('/login', authController.postLogin);
 router.get('/logout', authController.logout);
 router.get('/signup', authController.getSignup);
 router.post('/signup', authController.postSignup);
+
+//New
+
+router.get('/editor', ensureAdmin, authController.getEditor)
 
 module.exports = router;

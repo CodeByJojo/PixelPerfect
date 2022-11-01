@@ -13,4 +13,14 @@ module.exports = {
             res.redirect('/dashboard') // Find out what dashboard is
         }
     },
+
+    //Admin Attempt
+
+    ensureAdmin: function (req, res, next) {
+        if(req.isAuthenticated() && req.user.level === 'admin'){
+            return next();
+        } else {
+            res.redirect('/')
+        }
+    },
 };
