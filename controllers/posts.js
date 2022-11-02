@@ -39,7 +39,7 @@ module.exports = {
                 user: req.user.id,
             });
             console.log('Post has been created');
-            res.redirect('/profile');
+            res.redirect('/pixel'); //
         } catch (err) {
             console.log(err);
         }
@@ -66,9 +66,9 @@ module.exports = {
 
             await Post.remove({ _id: req.params.id });
             console.log('Deleted Post');
-            res.redirect('profile');
+            res.redirect('/pixel');
         } catch (err) {
-            res.redirect('/profile')
+            res.redirect('/pixel')
         }
     },
 };
