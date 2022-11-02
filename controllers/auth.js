@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 exports.getLogin = (req, res) => {
     if (req.user) {
-        return res.redirect('/profile'); //consider changing to home
+        return res.redirect('/pixel'); //consider changing to home
     }
     res.render('login', {
         title: 'Login',
@@ -13,8 +13,10 @@ exports.getLogin = (req, res) => {
 
 exports.postLogin = (req, res, next) => {
     const validationErrors = [];
-    if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' });
-    if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' });
+    if (!validator.isEmail(req.body.email)) 
+        validationErrors.push({ msg: 'Please enter a valid email address.' });
+    if (validator.isEmpty(req.body.password)) 
+        validationErrors.push({ msg: 'Password cannot be blank.' });
 
     if (validationErrors.length) {
         req.flash('errors', validationErrors);
@@ -37,7 +39,7 @@ exports.postLogin = (req, res, next) => {
                 return next(err);
             }
             req.flash('success', { msg: 'Success! You are now logged in!' });
-            res.redirect(req.session.returnTo || '/profile'); //Maybe Change
+            res.redirect(req.session.returnTo || '/pixel'); //Maybe Change
         });
     })(req, res, next);
 };
@@ -56,7 +58,7 @@ exports.logout = (req, res) => {
 
 exports.getSignup = (req, res) => {
     if (req.user) {
-        return res.redirect('/profile'); //Maybe change
+        return res.redirect('/pixel'); //Maybe change
     }
     res.render('signup', {
         title: 'Create Account',
@@ -109,7 +111,7 @@ exports.postSignup = (req, res, next) => {
                     if (err) {
                         return next(err);
                     }
-                    res.redirect('/profile'); // Maybe change
+                    res.redirect('/pixel'); // Maybe change
                 });
             });
         }
