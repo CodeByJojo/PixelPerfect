@@ -126,7 +126,7 @@ exports.getEditor = (req, res) => {
     });
 };
 
-exports.getPixel = (req, res) => {
+exports.getPixel = (req, res) => { //This might be needed in posts controllers
     if (req.user) {
         return res.redirect('/pixel');
     }

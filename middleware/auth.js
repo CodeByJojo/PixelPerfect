@@ -20,7 +20,7 @@ module.exports = {
         if(req.isAuthenticated() && req.user.level === 'admin'){
             return next();
         } else {
-            res.redirect('/')
+            res.redirect('/pixel')
         }
     },
 };

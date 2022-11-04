@@ -18,7 +18,8 @@ router.post('/signup', authController.postSignup);
 
 //New
 
-router.get('/pixel', ensureAuth, authController.getPixel)
+// router.get('/pixel', ensureAuth, authController.getPixel)
+router.get('/pixel', ensureAuth, postsController.getPixel);
 
 router.get('/editor', ensureAdmin, authController.getEditor)
 
