@@ -10,16 +10,19 @@
 		<!-- Below is where you left off(post.title)-->
 
 		<hr>
-		<!-- <ul>
+		<ul>
 			<% for(var i=0; i<posts.length; i++) {%>
 			  <li>
+				
 				<a href="/post/<%= posts[i]._id%>">
-					<h2><%= post.title %></h2>
+					<h2><%= posts[i].title%></h2>
 				  <img class="img-fluid" src="<%= posts[i].image%>">
+				  <h2><%= posts[i].caption%></h2>
 				</a>
+				<hr>
 			  </li>
 			<% } %>
-			</ul> -->
+			</ul>
 		<hr>
 
 		<h2><a href="/">Index</a></h2>
