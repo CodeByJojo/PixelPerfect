@@ -76,3 +76,7 @@ h1 {
 img {
   width: 45%;
 }
+
+.title {
+  font-size: 3rem;
+}
