@@ -1,4 +1,26 @@
-<%- include('partials/header') -%>
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Pixel Perfect</title>
+
+		<meta charset="utf-8">
+		<meta name="description" content="Your description goes here">
+		<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="public/css/normalize.css">
+		<link rel="stylesheet" href="public/css/style.css">
+		<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon"/>
+
+    <body>
 
 		
         <h1>This is the Posts page</h1>
@@ -13,7 +35,7 @@
           action="/post/likePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
+          <button class="btn btn-primary fa fa-heart" type="submit">Like</button>
         </form>
         <h3 class="col-3">Likes: <%= post.likes %></h3>
         <%if(post.user == user.id){ %>
@@ -22,7 +44,7 @@
           method="POST"
           class="col-3"
         >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+          <button class="btn btn-primary fa fa-trash" type="submit">Delete?</button>
         </form>
 		<%}%>
 

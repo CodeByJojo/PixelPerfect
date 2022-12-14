@@ -32,6 +32,7 @@ const PostSchema = new mongoose.Schema({
     slotNum: {
         type: Number,
         required: true,
+        default: 0
     }
 });
 
