@@ -8,7 +8,7 @@ const { ensureAuth, ensureGuest, ensureAdmin } = require('../middleware/auth');
 
 //Simple Main Routes
 router.get('/', homeController.getIndex); //This might need to change
-router.get('/profile', ensureAuth, postsController.getProfile); //might help for editor
+router.get('/profile', ensureAuth, postsController.getProfile); //deleted getProfile off end
 router.get('/feed', ensureAuth, postsController.getFeed); //This might not be needed
 router.get('/login', authController.getLogin);
 router.post('/login', authController.postLogin);

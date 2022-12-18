@@ -74,7 +74,7 @@ module.exports = {
     //Mine Below
     getPixel: async (req, res) => {
        try {
-        const posts = await Post.find({ user: req.user.id});
+        const posts = await Post.find().sort({ createdAt: 'desc' }).lean();
         res.render('pixel.ejs', {posts: posts, user: req.user});
        } catch (err) {
         console.log(err);
