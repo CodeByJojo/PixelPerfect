@@ -1,5 +1,6 @@
 const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post');
+const Comment = require('../models/Comment');
 
 module.exports = {
     getProfile: async (req, res) => {
@@ -39,9 +40,22 @@ module.exports = {
                 user: req.user.id,
             });
             console.log('Post has been created');
-            res.redirect('/pixel'); //
+            res.redirect('/pixel');
         } catch (err) {
             console.log(err);
+        }
+    },
+    createComment: async (req, res) => {
+        try {
+
+            await Comment.create({
+                comment: req.body.comment,
+                user: req.user.id,
+            });
+            console.log('Comment Created');
+            res.redirect('/pixel'); //Fix This
+        } catch (err) {
+            console.log(err)
         }
     },
     likePost: async (req, res) => {

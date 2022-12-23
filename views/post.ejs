@@ -30,7 +30,18 @@
 
 		<p><%= post.caption %></p>
 
+
+    <hr>
+    <form action="/post/createComment" enctype="multipart/form-data" method="POST">
+
+			<label for="caption" class="form-label">Comment</label>
+      <textarea class="form-control" id="comment" name="comment"></textarea>
+
+			<button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+		</form>
 		<hr>
+        <h1>Comments Go Here</h1>
+    <hr>
 
 		<h2><a href="/">Index</a></h2>
 		<h2><a href="/pixel">Pixel Home</a></h2>
