@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    couldinaryId: {
+    cloudinaryId: {
         type: String,
         require: true,
     },
@@ -33,7 +33,11 @@ const PostSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 0
-    }
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }],
 });
 
 module.exports = mongoose.model('Post', PostSchema); 

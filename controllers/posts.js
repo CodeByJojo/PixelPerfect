@@ -51,7 +51,7 @@ module.exports = {
             await Comment.create({
                 comment: req.body.comment,
                 user: req.user.id,
-                postId: 
+                
             });
             console.log('Comment Created');
             res.redirect('/pixel'); //Fix This
