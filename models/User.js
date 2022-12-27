@@ -27,7 +27,7 @@ UserSchema.pre('save', function save(next) {
             next(); 
         });
     });
-});
+}); 
 
 //Helper method
 
