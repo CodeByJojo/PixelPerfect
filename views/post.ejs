@@ -32,7 +32,7 @@
 
 
     <hr>
-    <form action="/post/createComment" method="POST">
+    <form action="/post/createComment/<%= post.id %>" method="POST">
 
 			<label for="caption" class="form-label">Comment</label>
       <textarea class="form-control" id="comment" name="comment"></textarea>
