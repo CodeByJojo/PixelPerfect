@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const PostSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -38,6 +39,7 @@ const PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }],
+
 });
 
 module.exports = mongoose.model('Post', PostSchema); 

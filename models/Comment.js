@@ -9,9 +9,9 @@ const CommentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-    post: {
+    thePost: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post'
+        ref: 'thePost'
     }
 });
 
