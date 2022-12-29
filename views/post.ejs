@@ -42,6 +42,21 @@
 
 		<hr>
         <h1>Comments Go Here</h1>
+
+        <%= console.log('Test Follows', post.comments[1].comment)%>
+
+        <ul>
+          <% for(var i=0; i<post.comments.length; i++) {%>
+            <li>
+            
+            <a href="/post/<%= post.comments[i]._id%>">
+              <h2 class="title"><%= post.comments[i].comment%></h2>
+              <h2><%= post.comments[i].comment%></h2>
+            </a>
+            <hr>
+            </li>
+          <% } %>
+          </ul>
     <hr>
 
 		<h2><a href="/">Index</a></h2>
