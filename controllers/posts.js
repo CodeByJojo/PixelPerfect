@@ -55,11 +55,12 @@ module.exports = {
             });
            const commentText = theComment.text;
             console.log(commentText)
+            await theComment.save()
 
             await Post.findByIdAndUpdate(
                 {_id: req.params.id},
                 {
-                    $push: {comments: commentText}
+                    $push: {comments: theComment}
                 }
             );
            
