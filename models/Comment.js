@@ -16,3 +16,6 @@ const CommentSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Comment', CommentSchema); 
+
+
+//This is where you left off. You are looking into .save and basically trying to get the schema to save as an actual schema, and not just the objectID. 

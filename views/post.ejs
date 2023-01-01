@@ -29,7 +29,9 @@
 		<%}%>
 
 		<p><%= post.caption %></p>
+    <hr>
 
+    <p><%= post.user.userName %></p>
 
     <hr>
     <form action="/post/createComment/<%= post.id %>" method="POST">
@@ -43,12 +45,14 @@
 		<hr>
         <h1>Comments Go Here</h1>
 
-        <%= console.log('Test Follows', post.comments[0].text)%>
+        <%= console.log('Test') %>
+
+        
 
         <ul>
           <% for(var i=0; i<post.comments.length; i++) {%>
             <li>
-              <h2><%= post.comments[i].text%></h2>
+              <h2><%= post.comments[i]%></h2>
             <hr>
             </li>
           <% } %>

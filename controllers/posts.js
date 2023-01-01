@@ -53,10 +53,13 @@ module.exports = {
                 user: req.user.id,
                 thePost: req.params.id,
             });
+           const commentText = theComment.text;
+            console.log(commentText)
+
             await Post.findByIdAndUpdate(
                 {_id: req.params.id},
                 {
-                    $push: {comments: theComment}
+                    $push: {comments: commentText}
                 }
             );
            
