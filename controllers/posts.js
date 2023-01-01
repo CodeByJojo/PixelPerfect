@@ -49,22 +49,21 @@ module.exports = {
     createComment: async (req, res) => {
         try {
            const theComment =  await Comment.create({
-                comment: req.body.comment,
+                text: req.body.text,
                 user: req.user.id,
                 thePost: req.params.id,
             });
-            //???
             await Post.findByIdAndUpdate(
                 {_id: req.params.id},
                 {
                     $push: {comments: theComment}
                 }
-            )
+            );
            
             console.log('Comment Created');
-            res.redirect('/pixel'); //Fix This
+            res.redirect(`/post/${req.params.id}`);
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
     },
     likePost: async (req, res) => {

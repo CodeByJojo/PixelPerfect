@@ -35,7 +35,7 @@
     <form action="/post/createComment/<%= post.id %>" method="POST">
 
 			<label for="caption" class="form-label">Comment</label>
-      <textarea class="form-control" id="comment" name="comment"></textarea>
+      <textarea class="form-control" id="text" name="text"></textarea>
 
 			<button type="submit" class="btn btn-primary" value="Upload">Submit</button>
 		</form>
@@ -43,20 +43,16 @@
 		<hr>
         <h1>Comments Go Here</h1>
 
-        <%= console.log('Test Follows', post.comments[1].comment)%>
+        <%= console.log('Test Follows', post.comments[0].text)%>
 
         <ul>
           <% for(var i=0; i<post.comments.length; i++) {%>
             <li>
-            
-            <a href="/post/<%= post.comments[i]._id%>">
-              <h2 class="title"><%= post.comments[i].comment%></h2>
-              <h2><%= post.comments[i].comment%></h2>
-            </a>
+              <h2><%= post.comments[i].text%></h2>
             <hr>
             </li>
           <% } %>
-          </ul>
+        </ul>
     <hr>
 
 		<h2><a href="/">Index</a></h2>
