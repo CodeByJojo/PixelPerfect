@@ -1,6 +1,7 @@
 const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
+const { default: mongoose } = require('mongoose');
 
 
 module.exports = {
@@ -39,6 +40,7 @@ module.exports = {
                 caption: req.body.caption,
                 likes: 0,
                 user: req.user.id,
+                comments: new mongoose.Types.ObjectId(),
             });
             console.log('Post has been created');
             res.redirect('/pixel');
@@ -48,15 +50,20 @@ module.exports = {
     },
     createComment: async (req, res) => {
         try {
-                await Comment.create({
+                const theComment = await Comment.create({
                 text: req.body.text,
                 user: req.user.id,
                 thePost: req.params.id,
             });
             
-             await Post.findById(req.params.id).populate('comments');
+            await Post.findByIdAndUpdate({_id: req.params.id},
+                {$push: {comments: theComment}})
+
+            await Post.findByIdAndUpdate({_id: req.params.id}).populate('comments');
+
             
-           
+            
+            
             console.log('Comment Created');
             res.redirect(`/post/${req.params.id}`);
         } catch (err) {
