@@ -40,7 +40,6 @@ module.exports = {
                 caption: req.body.caption,
                 likes: 0,
                 user: req.user.id,
-                comments: new mongoose.Types.ObjectId(),
             });
             console.log('Post has been created');
             res.redirect('/pixel');
@@ -55,11 +54,12 @@ module.exports = {
                 user: req.user.id,
                 thePost: req.params.id,
             });
-            
+
+            //???
             await Post.findByIdAndUpdate({_id: req.params.id},
                 {$push: {comments: theComment}})
-
-            await Post.findByIdAndUpdate({_id: req.params.id}).populate('comments');
+                
+                await Post.findByIdAndUpdate({_id: req.params.id}).populate('comments');
 
             
             
