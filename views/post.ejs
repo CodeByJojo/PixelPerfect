@@ -52,6 +52,7 @@
         <ul>
           <% for(var i=0; i<post.comments.length; i++) {%>
             <li>
+              <h2> <%= post.comments[i].user%></h2>
               <h2><%= post.comments[i].text%></h2>
             <hr>
             </li>

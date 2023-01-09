@@ -24,7 +24,7 @@ module.exports = {
     getPost: async (req, res) => {
         try {
             
-            const post = await Post.findById(req.params.id);
+            const post = await Post.findById(req.params.id).populate('comments');
             res.render('post.ejs', { post: post, user: req.user});
 
         } catch (err) {
@@ -51,11 +51,21 @@ module.exports = {
     },
     createComment: async (req, res) => {
         try {
-                await Comment.create({
+               let theComment =  await Comment.create({
                 text: req.body.text,
                 user: req.user.id,
                 thePost: req.params.id,
             }); 
+
+            await Post.findByIdAndUpdate(
+                {_id: req.params.id},
+                {
+                    $push: {comments: theComment}
+                }
+            );
+
+            await Post.find({_id: req.params.id})
+            .populate('comments')
 
             console.log('Comment Created');
             res.redirect(`/post/${req.params.id}`);
