@@ -31,7 +31,7 @@
 		<p><%= post.caption %></p>
     <hr>
 
-    <p><%= post.user.userName %></p>
+    <p> Written by <%= post.user.userName %></p>
 
     <hr>
     <form action="/post/createComment/<%= post.id %>" method="POST">
@@ -43,17 +43,15 @@
 		</form>
 
 		<hr>
-        <h1>Comments Go Here</h1>
-
-        <%= console.log(post.id)%>
+        <h1>Comments</h1>
 
         
 
         <ul>
           <% for(var i=0; i<post.comments.length; i++) {%>
             <li>
-              <h2> <%= post.comments[i].user%></h2>
-              <h2><%= post.comments[i].text%></h2>
+              <h2 class="userName"> <%= post.comments[i].userName%>:</h2>
+              <h2 class="comment"><%=post.comments[i].text%></h2>
             <hr>
             </li>
           <% } %>

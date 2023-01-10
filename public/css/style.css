@@ -33,6 +33,13 @@ li {
   list-style: none;
 }
 
+.userName {
+  color: rgb(241, 89, 0);
+}
+.comment {
+  text-indent: 2rem;
+}
+
 
 
 
